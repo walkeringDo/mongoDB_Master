@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56D74944-4B20-4941-BC67-72A8E57E5A02}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MongoUtility</RootNamespace>
+    <AssemblyName>MongoUtility</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>Full</DebugType>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=2.0.0.828, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Bson.2.0.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.0.0.828, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Driver.2.0.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.0.0.828, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy, Version=2.0.0.828, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mongocsharpdriver.2.0.0\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aggregation\AggregationHelper.cs" />
+    <Compile Include="Aggregation\DataFilter.cs" />
+    <Compile Include="Aggregation\DataViewInfo.cs" />
+    <Compile Include="Core\ReadWrite.cs" />
+    <Compile Include="Core\TagInfo.cs" />
+    <Compile Include="Command\Collection.cs" />
+    <Compile Include="Command\Document.cs" />
+    <Compile Include="Command\ReplicaSet.cs" />
+    <Compile Include="ToolKit\MongodbDosCommand.cs" />
+    <Compile Include="Command\GFS.cs" />
+    <Compile Include="ToolKit\MongodConfig.cs" />
+    <Compile Include="ToolKit\MongoHelper.cs" />
+    <Compile Include="Basic\ConstMgr.cs" />
+    <Compile Include="Basic\EnumMgr.cs" />
+    <Compile Include="ToolKit\MongoDumpInfo.cs" />
+    <Compile Include="ToolKit\MongoImportExportInfo.cs" />
+    <Compile Include="ToolKit\MongoRestoreInfo.cs" />
+    <Compile Include="Core\MongoConfig.cs" />
+    <Compile Include="Command\CommandHelper.cs" />
+    <Compile Include="EventArgs\EventArgExtensions.cs" />
+    <Compile Include="EventArgs\ActionDoneEventArgs.cs" />
+    <Compile Include="Core\MongoConnectionConfig.cs" />
+    <Compile Include="Command\ElementHelper.cs" />
+    <Compile Include="Command\ExportImport.cs" />
+    <Compile Include="EventArgs\RunCommandEventArgs.cs" />
+    <Compile Include="Core\RuntimeMongoDBContext.cs" />
+    <Compile Include="Command\DataBase.cs" />
+    <Compile Include="Aggregation\QueryHelper.cs" />
+    <Compile Include="Aggregation\SqlHelper.cs" />
+    <Compile Include="EventArgs\SelectedIndexChangeEventArgs.cs" />
+    <Compile Include="EventArgs\TextChangeEventArgs.cs" />
+    <Compile Include="Core\GetConnectionInfo.cs" />
+    <Compile Include="Security\MongoDBAction.cs" />
+    <Compile Include="Security\Resource.cs" />
+    <Compile Include="Security\User.cs" />
+    <Compile Include="Security\Role.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Basic\BsonValueEx.cs" />
+    <Compile Include="Security\EachDatabaseUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{40495682-c452-41c4-b2ae-8c60d7743bc9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
